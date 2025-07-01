@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 15rem;
+  padding: 5rem 10rem;
 
   .category_list {
     gap: 70px;
@@ -44,4 +44,11 @@
       background: #ffff;
     }
   }
+}
+
+@media(max-width:1024px){
+   .category_container{
+     flex-wrap: wrap;
+     flex-direction: column;
+   }
 }
