@@ -2,7 +2,7 @@ import { Header } from "./assets/components/Header";
 import { Banner } from "./assets/components/Banner";
 import { Category } from "./assets/components/Category";
 import { Products } from "./assets/components/Products";
-
+import { Partner } from "./assets/components/Partner";
 
 import "./assets/styles/global.scss";
 
@@ -12,7 +12,8 @@ function App() {
       <Header />
       <Banner />
       <Category />
-      <Products/>
+      <Products />
+      <Partner/>
     </>
   );
 }
