@@ -73,7 +73,7 @@ export const Products = () => {
                 <img src={product.photo} alt={product.productName} />
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <p className="old_price">R$ 30,90</p>
-                <h3 className="price">R$ {product.price.toFixed(2)}</h3>
+                <h3 className="price">  R$ { (product.price).toLocaleString("pt-BR", { minimumFractionDigits: 2 }) }</h3>
                 <p className="installments">
                   ou 2x de R$ {(product.price / 2).toFixed(2)} sem juros
                 </p>
