@@ -7,7 +7,15 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-export const Products = () => {
+interface ProductsProps {
+  showCategories?: boolean;
+  showAllButton?: boolean;
+}
+
+const Products = ({
+  showCategories = true,
+  showAllButton = false,
+}: ProductsProps) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
@@ -27,28 +35,34 @@ export const Products = () => {
     <section className="products_container">
       <h1>Produtos Relacionados</h1>
 
-      <nav className="products_category" aria-label="Categorias de produtos">
-        <ul className="category_list">
-          <li>
-            <button type="button">Celular</button>
-          </li>
-          <li>
-            <button type="button">Acessórios</button>
-          </li>
-          <li>
-            <button type="button">Tablets</button>
-          </li>
-          <li>
-            <button type="button">Notebooks</button>
-          </li>
-          <li>
-            <button type="button">TVs</button>
-          </li>
-          <li>
-            <button type="button">Ver todos</button>
-          </li>
-        </ul>
-      </nav>
+      {showAllButton && !showCategories && (
+        <button className="all-category">Ver todos</button>
+      )}
+
+      {showCategories && (
+        <nav className="products_category">
+          <ul className="category_list">
+            <li>
+              <button type="button">Celular</button>
+            </li>
+            <li>
+              <button type="button">Acessórios</button>
+            </li>
+            <li>
+              <button type="button">Tablets</button>
+            </li>
+            <li>
+              <button type="button">Notebooks</button>
+            </li>
+            <li>
+              <button type="button">TVs</button>
+            </li>
+            <li>
+              <button type="button">Ver todos</button>
+            </li>
+          </ul>
+        </nav>
+      )}
 
       <div className="product_carousel">
         <Swiper
@@ -73,7 +87,13 @@ export const Products = () => {
                 <img src={product.photo} alt={product.productName} />
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <p className="old_price">R$ 30,90</p>
-                <h3 className="price">  R$ { (product.price).toLocaleString("pt-BR", { minimumFractionDigits: 2 }) }</h3>
+                <h3 className="price">
+                  {" "}
+                  R${" "}
+                  {product.price.toLocaleString("pt-BR", {
+                    minimumFractionDigits: 2,
+                  })}
+                </h3>
                 <p className="installments">
                   ou 2x de R$ {(product.price / 2).toFixed(2)} sem juros
                 </p>

@@ -1,0 +1,36 @@
+.brand-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin: 30px 0;
+
+  .brand-title {
+    h1 {
+      color: #3442b5;
+      font-size: 30px;
+      font-weight: 700;
+      margin: 0 0 20px 0;
+    }
+  }
+  .brands-section {
+    width: 100%;
+    margin: 20px 0;
+    gap: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .brand-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+      box-shadow: 0 5px 15px #00000017;
+      width: 211px;
+      height: 211px;
+    }
+  }
+}
