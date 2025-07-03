@@ -1,3 +1,5 @@
+
+import { useState } from "react";
 import type { Product } from "../types/Product";
 import "../styles/ProductModal.scss";
 
@@ -7,6 +9,18 @@ interface ProductModalProps {
 }
 
 const ProductModal = ({ product, onClose }: ProductModalProps) => {
+  const [quantity, setQuantity] = useState(1);
+
+  const handleMinus = () => {
+    if (quantity > 1) {
+      setQuantity((prev) => prev - 1);
+    }
+  };
+
+  const handlePlus = () => {
+    setQuantity((prev) => prev + 1);
+  };
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -34,9 +48,13 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
 
             <div className="modal-quantity">
               <div className="input-wrapper">
-                <button className="btn-minus">-</button>
-                <input type="text" defaultValue={1} min={1} />
-                <button className="btn-plus">+</button>
+                <button className="btn-minus" onClick={handleMinus}>-</button>
+                <input
+                  type="text"
+                  value={quantity}
+                  readOnly
+                />
+                <button className="btn-plus" onClick={handlePlus}>+</button>
               </div>
               <button className="modal-buy">COMPRAR</button>
             </div>
