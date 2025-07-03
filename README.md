@@ -26,19 +26,18 @@ O projeto foi desenvolvido utilizando **React**, **TypeScript** e **Sass**, resp
 ## 🧪 Como Rodar o Projeto Localmente
 
 ### 1. Clone o repositório
-
-```bash
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
 
 ### 2. Instale as dependências
- npm install
+npm install 
 
-### Rode o projeto em modo desenvolvimento 
-npm run dev 
-Acesse: http://localhost:5173
+### 3. Inicie o servidor de desenvolvimento
+npm run dev
 
-### 4. Build para produção 
+### 4. Gerar build de produção
 npm run build
+
+
 
 
